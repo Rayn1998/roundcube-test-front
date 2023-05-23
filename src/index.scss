@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+}
+
+@mixin text {
+  font-family: 'Inter', 'Arial', sans-serif;;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin page {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+@mixin button {
+  margin-top: 2rem;
+    min-width: 12rem;
+    min-height: 3rem;
+    border-radius: 1rem;
+    border: none;
+    transition: all 0.15s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 0 0.5rem black;
+    } 
+}
+
+.app {
+  max-width: 1280px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.welcome {
+  @include page;
+
+  .welcome__title {
+    @include text;
+    font-size: 4rem;
+    font-weight: 600;
+  }
+
+  .welcome__text {
+    @include text;
+    font-size: 2.4rem;
+  }
+
+  .welcome__no-mes {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    font-size: 2rem;
+  }
+
+  .welcome__messages {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .welcome__btn {
+    @include button;
+  }
+
+  .welcome__btn-more {
+    @include button;
+  }
+
+}
+
+.message__item {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+
+  .message__item-name {
+    @include text;
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+
+  .message__item-mes {
+    @include text;
+    font-size: 1.6rem;
+  }
+}
+
+.message {
+  @include page;
+
+  .message__back {
+    background-color: transparent;
+    padding: 0.2rem;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 4rem;
+    left: 15rem;
+  }
+
+  .message__form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .message__field-wrapper {
+    display: flex;
+    gap: 1rem;
+
+    p {
+      @include text;
+      font-size: 1.6rem;
+      min-width: 8rem;
+    }
+
+    input {
+      min-width: 25rem;
+    }
+  }
+
+  .message__field-error {
+    @include text;
+    font-size: 1.2rem;
+    color: red;
+    max-height: 1rem;
+    width: 100%;
+  }
+
+  .message__post-btn {
+    @include button;
+  }
+
+  .message__post-btn-status {
+    @include text;
+    text-align: center;
+    font-size: 1.6rem;
+  }
+}
