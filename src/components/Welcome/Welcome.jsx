@@ -6,7 +6,7 @@ import api from 'utils/Api';
 const Welcome = () => {
 	const navigate = useNavigate();
 	const [messages, setMessages] = useState([]);
-	const [limiter, setLimiter] = useState(10);
+	const [limiter, setLimiter] = useState(9);
 	const [seeMore, setSeeMore] = useState(true);
 
 	const handleButton = useCallback(() => {
@@ -14,7 +14,7 @@ const Welcome = () => {
 	}, []);
 
 	const handleButtonMore = useCallback(() => {
-		setLimiter(limiter + 1);
+		setLimiter(limiter => limiter + 1);
 	}, []);
 
 	useEffect(() => {
@@ -27,7 +27,9 @@ const Welcome = () => {
 	}, []);
 
 	useEffect(() => {
-		messages.length <= limiter && setSeeMore(false);
+		messages.length <= limiter 
+			? setSeeMore(false)
+			: setSeeMore(true);
 	}, [messages, limiter, seeMore]);
 
 	return (
